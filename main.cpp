@@ -101,18 +101,17 @@ bool stateMachine(string &error, const int osztando, const int oszto, int &hanya
         cout<<"i: "<<i<<endl;
         cout<<"Kezdeti ertekek: "<<endl;
         cout<<"temp:\t"<<temp_osztando_bin<<endl;
+
+        hanyados_bin<<=1;
         if(oszto_bin.to_ullong()>temp_osztando_bin.to_ullong()){
-            hanyados_bin<<=1;
             hanyados_bin[0]=0;
-            temp_osztando_bin<<=1;
-            temp_osztando_bin[0]=osztando_bin[meret_kulonbseg-i-1];
         } else{
-            hanyados_bin<<=1;
             hanyados_bin[0]=1;
             temp_osztando_bin=temp_osztando_bin.to_ullong()-oszto_bin.to_ullong();
-            temp_osztando_bin<<=1;
-            temp_osztando_bin[0]=osztando_bin[meret_kulonbseg-i-1];
         }
+
+        temp_osztando_bin<<=1;
+        temp_osztando_bin[0]=osztando_bin[meret_kulonbseg-i-1];
 
         cout<<"Vegso ertekek: "<<endl;
         cout<<"temp:\t"<<temp_osztando_bin<<endl;
@@ -121,11 +120,10 @@ bool stateMachine(string &error, const int osztando, const int oszto, int &hanya
 
     //
     //Utolso bit
+    hanyados_bin<<=1;
     if(oszto_bin.to_ullong()>temp_osztando_bin.to_ullong()){
-        hanyados_bin<<=1;
         hanyados_bin[0]=0;
     }else{
-        hanyados_bin<<=1;
         hanyados_bin[0]=1;
         temp_osztando_bin=temp_osztando_bin.to_ullong()-oszto_bin.to_ullong();
     }
